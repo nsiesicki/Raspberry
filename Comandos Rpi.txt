@@ -1,0 +1,26 @@
+Cambiar idioma teclado
+
+Cuando instalamos Debian en nuestra Raspberry Pi, se configura por defecto en inglés de Reino Unido, teclado inglés, etc. Para españolizarla solo tenemos que seguir los siguientes pasos: 
+Primero vamos a cambiar la codificación de idioma. 
+
+# Abre una consola (local o por SSH si lo tenemos activado). Recuerda, usuario pi y contraseña raspberry.
+
+##Ejecuta el comando sudo dpkg-reconfigure locales. Aparecerá una lista de las codificaciones disponibles.
+##Busca español de España (es_ES), preferiblemente con codificación UTF-8 y pulsa la barra espaciadora para seleccionarlo. Se recomienda no eliminar el inglés de Reino Unido, aunque es una opción personal. Pulsa intro para continuar.
+##Selecciona el idioma predeterminado de entre los que has marcado antes (es_ES.UTF-8) y pulsa intro. Se generarán los locales.
+
+#A continuación elegiremos la configuración del teclado. 
+
+##Ejecuta sudo dpkg-reconfigure keyboard-configuration. Tomará la configuración del apartado anterior.
+##Ahora vamos a elegir la zona horaria: 
+##Ejecuta sudo dpkg-reconfigure tzdata.
+##Selecciona Europa y después Madrid o la zona horaria en la que te encuentres.
+
+#Vamos a hacer que las actualizaciones se descarguen desde España y no desde Reino Unido. 
+##Ejecuta sudo nano /etc/apt/sources.list para abrir el fichero de configuración.
+##Cambia ftp.uk.debian.org por ftp.es.debian.org. En algunas versiones, la primera línea está duplicada; borra la más corta de las dos.
+##Pulsa control+o para guardar y control+x para salir.
+##Actualiza la lista con sudo apt-get update.
+##Si además tienes instalado xrdp para acceso remoto desde un PC con Windows y quieres configurar el teclado en xrdp, descarga el fichero km-040a.ini [1] y muevelo a la carpeta /etc/xrdp 
+
+#Por último, reinicia para aplicar todos los cambios: sudo reboot. 
