@@ -12,7 +12,8 @@ Primero vamos a cambiar la codificación de idioma.
 #A continuación elegiremos la configuración del teclado. 
 
 ##Ejecuta sudo dpkg-reconfigure keyboard-configuration. Tomará la configuración del apartado anterior.
-##Ahora vamos a elegir la zona horaria: 
+
+#Ahora vamos a elegir la zona horaria: 
 ##Ejecuta sudo dpkg-reconfigure tzdata.
 ##Selecciona Europa y después Madrid o la zona horaria en la que te encuentres.
 
